@@ -7,15 +7,26 @@
 
 import SwiftUI
 
+struct BigBlue: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(.blue)
+            .font(.largeTitle)
+            .fontWeight(.heavy)
+    }
+}
+
+extension View {
+    func bigBlue() -> some View {
+        modifier(BigBlue())
+    }
+}
+
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Hello, world!").bigBlue()
         }
-        .padding()
     }
 }
 
